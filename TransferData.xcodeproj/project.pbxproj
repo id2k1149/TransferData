@@ -13,6 +13,7 @@
 		506491FE2963347500AA51C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 506491FC2963347500AA51C9 /* Main.storyboard */; };
 		506492002963347700AA51C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 506491FF2963347700AA51C9 /* Assets.xcassets */; };
 		506492032963347700AA51C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 506492012963347700AA51C9 /* LaunchScreen.storyboard */; };
+		5064920B29635D8300AA51C9 /* ViewControllerTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5064920A29635D8300AA51C9 /* ViewControllerTwo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		506491FF2963347700AA51C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		506492022963347700AA51C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		506492042963347700AA51C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5064920A29635D8300AA51C9 /* ViewControllerTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTwo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,9 +61,10 @@
 				506491F62963347500AA51C9 /* AppDelegate.swift */,
 				506491F82963347500AA51C9 /* SceneDelegate.swift */,
 				506491FA2963347500AA51C9 /* ViewController.swift */,
+				5064920A29635D8300AA51C9 /* ViewControllerTwo.swift */,
 				506491FC2963347500AA51C9 /* Main.storyboard */,
-				506491FF2963347700AA51C9 /* Assets.xcassets */,
 				506492012963347700AA51C9 /* LaunchScreen.storyboard */,
+				506491FF2963347700AA51C9 /* Assets.xcassets */,
 				506492042963347700AA51C9 /* Info.plist */,
 			);
 			path = TransferData;
@@ -141,6 +144,7 @@
 				506491FB2963347500AA51C9 /* ViewController.swift in Sources */,
 				506491F72963347500AA51C9 /* AppDelegate.swift in Sources */,
 				506491F92963347500AA51C9 /* SceneDelegate.swift in Sources */,
+				5064920B29635D8300AA51C9 /* ViewControllerTwo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,8 +15,9 @@ final class ViewController: UIViewController {
     
     private let label = UILabel()
 //    private let labelTwo = customLabel(text: "GoodBye", color: .blue)
-    private let textfield = UITextField()
+    private let textField = UITextField()
     private let button = UIButton()
+    private var text = ""
 
     //MARK: - Override UIViewController
     
@@ -27,9 +28,46 @@ final class ViewController: UIViewController {
     
     //MARK: - Actions
     
+    // option 3 using segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "ViewControllerTwoID2" else { return }
+        guard let destination = segue.destination as? ViewControllerTwo else { return }
+        destination.text = "TEST"
+        
+    }
+    
+    
     @objc
     private func goToViewControllerTwo() {
         print("goToViewControllerTwo")
+        
+        // option 1 using code
+        /*
+        // where we go
+        let viewController = ViewControllerTwo()
+        
+        // what we send to viewController
+        viewController.text = text
+        
+        // open ViewControllerTwo()
+        present(viewController, animated: true)
+         */
+        
+        // option 2 using storyBoard
+        /*
+        // where we go
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        
+        // dont forget to add ViewControllerTwoID to storyBoard
+        guard let vc = storyBoard.instantiateViewController(withIdentifier: "ViewControllerTwoID") as? ViewControllerTwo else { return }
+        
+        // what we send to viewController
+        vc.text = text
+        
+        // open ViewControllerTwo()
+        present(vc, animated: true)
+         */
+        
     }
 }
 
@@ -59,7 +97,7 @@ private extension ViewController {
     
     func addViews() {
         view.addSubview(label)
-        view.addSubview(textfield)
+        view.addSubview(textField)
         view.addSubview(button)
     }
     
@@ -72,8 +110,8 @@ private extension ViewController {
     }
     
     func setupTextField() {
-        textfield.backgroundColor = .gray
-        textfield.delegate = self
+        textField.backgroundColor = .gray
+        textField.delegate = self
     }
     
     func setupButton() {
@@ -83,6 +121,7 @@ private extension ViewController {
     }
     
     // add custom Label for each label (option 2)
+    /*
     func customLabel(text: String, color: UIColor) -> UILabel {
         let label = UILabel()
         
@@ -94,6 +133,7 @@ private extension ViewController {
         
         return label
     }
+     */
 }
 
 //MARK: - Layout
@@ -108,7 +148,7 @@ private extension ViewController {
          */
         
         // option 2
-        [label, textfield, button].forEach {
+        [label, textField, button].forEach {
             // disconect storyboard
             $0.translatesAutoresizingMaskIntoConstraints = false
             
@@ -128,14 +168,18 @@ private extension ViewController {
         NSLayoutConstraint.activate([
             label.topAnchor.constraint(equalTo: view.topAnchor, constant: 300),
             label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            label.widthAnchor.constraint(equalToConstant: 70),
+            label.heightAnchor.constraint(equalToConstant: 50),
             
-            textfield.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            textfield.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            textField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            textField.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            textField.widthAnchor.constraint(equalToConstant: 400),
+            textField.heightAnchor.constraint(equalToConstant: 50),
             
             button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            button.widthAnchor.constraint(equalToConstant: 200),
+            button.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: 100),
+            button.widthAnchor.constraint(equalToConstant: 300),
             button.heightAnchor.constraint(equalToConstant: 50),
-            button.topAnchor.constraint(equalTo: textfield.bottomAnchor, constant: 100)
             
         ])
     }
@@ -148,7 +192,9 @@ extension ViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         // must add textfield.delegate = self to func setupTextField()
-        print(textfield.text ?? "N/A")
+        print(textField.text ?? "N/A")
+        
+        text = textField.text ?? "N/A"
         
         return true
     }
