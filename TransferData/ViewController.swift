@@ -47,6 +47,7 @@ final class ViewController: UIViewController {
         // what we send to viewController
         viewController.text = text
         
+        // call completion from ViewControllerTwo
         viewController.completion = { text in
             self.label.text = text
         }

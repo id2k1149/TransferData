@@ -53,7 +53,8 @@ final class ViewControllerTwo: UIViewController {
     @objc
     private func returnBack() {
         // to return text
-        completion?("some text")
+//        completion?("some text")
+        completion?(label.text ?? "N/A")
         
         // close view
         dismiss(animated: true)
