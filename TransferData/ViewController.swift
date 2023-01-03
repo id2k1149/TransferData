@@ -28,12 +28,11 @@ final class ViewController: UIViewController {
     
     //MARK: - Actions
     
-    // option 3 using segue
+    // option 3 - using segue for second button
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "ViewControllerTwoID2" else { return }
         guard let destination = segue.destination as? ViewControllerTwo else { return }
         destination.text = "TEST"
-        
     }
     
     
@@ -41,19 +40,22 @@ final class ViewController: UIViewController {
     private func goToViewControllerTwo() {
         print("goToViewControllerTwo")
         
-        // option 1 using code
-        /*
+        // option 1 - using code
         // where we go
         let viewController = ViewControllerTwo()
         
         // what we send to viewController
         viewController.text = text
         
+        viewController.completion = { text in
+            self.label.text = text
+        }
+        
         // open ViewControllerTwo()
         present(viewController, animated: true)
-         */
+         
         
-        // option 2 using storyBoard
+        // option 2 - using storyBoard
         /*
         // where we go
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
@@ -106,7 +108,8 @@ private extension ViewController {
     }
     
     func setupLabel() {
-        label.text = "Hello!!!"
+        label.backgroundColor = .green
+        label.text = "Hello!!! Hello!!!"
     }
     
     func setupTextField() {
@@ -156,7 +159,7 @@ private extension ViewController {
             $0.layer.cornerRadius = 12
         }
         
-        
+         
         // option 1
         /*
          // add constains
@@ -168,7 +171,7 @@ private extension ViewController {
         NSLayoutConstraint.activate([
             label.topAnchor.constraint(equalTo: view.topAnchor, constant: 300),
             label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            label.widthAnchor.constraint(equalToConstant: 70),
+            label.widthAnchor.constraint(equalToConstant: 270),
             label.heightAnchor.constraint(equalToConstant: 50),
             
             textField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
